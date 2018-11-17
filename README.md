@@ -1,7 +1,7 @@
 # Supplementary_UnityShooting
 補講用プロジェクト
 * Unityの使い方
-  * 導入
+  * 導入(Unity Hubを使用)
   * 画面の見方
   * uGUIの使い方
   * シーン切り替え
