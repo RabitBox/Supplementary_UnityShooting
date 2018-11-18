@@ -427,6 +427,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 315068333}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &847746218 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114802798390064930, guid: 75cd9d67afc6ea043888c5509bb87ae9,
+    type: 2}
+  m_PrefabInternal: {fileID: 2062918089}
+  m_Script: {fileID: 11500000, guid: d79f269f239fc954e8f6a68a914046d9, type: 3}
 --- !u!1001 &956255900
 Prefab:
   m_ObjectHideFlags: 0
@@ -810,6 +816,22 @@ Prefab:
       propertyPath: _createTarget
       value: 
       objectReference: {fileID: 315068335}
+    - target: {fileID: 114242544434262600, guid: 75cd9d67afc6ea043888c5509bb87ae9,
+        type: 2}
+      propertyPath: _enemy
+      value: 
+      objectReference: {fileID: 1464582435246288, guid: 20caebc687740f541bd0badcb01f8b5c,
+        type: 2}
+    - target: {fileID: 114242544434262600, guid: 75cd9d67afc6ea043888c5509bb87ae9,
+        type: 2}
+      propertyPath: _spawnTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114121444619466110, guid: 75cd9d67afc6ea043888c5509bb87ae9,
+        type: 2}
+      propertyPath: _scoreManager
+      value: 
+      objectReference: {fileID: 847746218}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75cd9d67afc6ea043888c5509bb87ae9, type: 2}
   m_IsPrefabAsset: 0

@@ -33,7 +33,11 @@ public class CharaBase : MonoBehaviour
 	public Vector2 Position
 	{
 		get { return _rectTransform.anchoredPosition; }
-		set { if(_rectTransform) _rectTransform.anchoredPosition = value; }
+		set
+		{
+			if (!_rectTransform) _rectTransform = this.gameObject.GetComponent<RectTransform>();
+			_rectTransform.anchoredPosition = value;
+		}
 	}
 
 	//--------------------------------------------------
@@ -49,6 +53,18 @@ public class CharaBase : MonoBehaviour
 		{
 			Move();
 			if (_shooter) { _shooter.Shot(Position, this.transform.parent); }
+		}
+	}
+
+	protected virtual void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.gameObject.tag == "Bullet")
+		{
+			if(collision.gameObject.GetComponent<BulletBase>().CreaterTag != this.gameObject.tag)
+			{
+				Damage(1);
+				collision.gameObject.SetActive(false);
+			}
 		}
 	}
 

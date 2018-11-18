@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// ゲーム進行管理クラス
 /// </summary>
+[RequireComponent(typeof(ScoreManager))]
 public class GameContoroller : SingletonMonoBehavior<GameContoroller>
 {
 	/// <summary>
@@ -28,8 +29,21 @@ public class GameContoroller : SingletonMonoBehavior<GameContoroller>
 	/// </summary>
 	[SerializeField] private GameObject _player;
 
+	/// <summary>
+	/// スコアマネージャ
+	/// </summary>
+	[SerializeField] private ScoreManager _scoreManager = null;
+	public ScoreManager Score { get { return _scoreManager; } }
+
+	/// <summary>
+	/// スクリーン座標の最大値
+	/// </summary>
 	private Vector2 _max;
 	public Vector2 ScreenMax { get { return _max; } }
+
+	/// <summary>
+	/// スクリーン座標の最小値
+	/// </summary>
 	private Vector2 _min;
 	public Vector2 ScreenMin { get { return _min; } }
 
