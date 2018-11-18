@@ -41,6 +41,32 @@ public class GameContoroller : SingletonMonoBehavior<GameContoroller>
 		_min -= _max = (size / 2);
 	}
 
+	private void Update()
+	{
+		if (_player.activeSelf == false)
+		{
+			NowMode = Mode.GameOver;
+		}
+
+		switch (NowMode)
+		{
+			case Mode.Play:
+				if (_pause.activeSelf) _pause.SetActive(false);
+				if (_gameOver.activeSelf) _gameOver.SetActive(false);
+				break;
+
+			case Mode.Pause:
+				if (!_pause.activeSelf) _pause.SetActive(true);
+				if (_gameOver.activeSelf) _gameOver.SetActive(false);
+				break;
+
+			case Mode.GameOver:
+				if (_pause.activeSelf) _pause.SetActive(false);
+				if (!_gameOver.activeSelf) _gameOver.SetActive(true);
+				break;
+		}
+	}
+
 	//--------------------------------------------------
 	// uGUI
 	/// <summary>
@@ -48,23 +74,15 @@ public class GameContoroller : SingletonMonoBehavior<GameContoroller>
 	/// </summary>
 	public void OnClick_Pause()
 	{
-		if(_pause != null)
-		{
-			_pause.SetActive( !_pause.activeSelf );
-			NowMode = Mode.Pause;
-		}
+		NowMode = Mode.Pause;
 	}
 
 	/// <summary>
 	/// コンティニューボタン
 	/// </summary>
-	public void OnClick_Continue(GameObject target = null)
+	public void OnClick_Continue()
 	{
-		if(target != null)
-		{
-			target.SetActive( !target );
-			NowMode = Mode.Play;
-		}
+		NowMode = Mode.Play;
 	}
 
 	/// <summary>

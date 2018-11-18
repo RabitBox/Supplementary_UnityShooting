@@ -23,6 +23,11 @@ public class CharaBase : MonoBehaviour
 	protected RectTransform _rectTransform = null;
 
 	/// <summary>
+	/// バレットシューター
+	/// </summary>
+	protected BulletShooter _shooter = null;
+
+	/// <summary>
 	/// ポジション
 	/// </summary>
 	public Vector2 Position
@@ -32,44 +37,37 @@ public class CharaBase : MonoBehaviour
 	}
 
 	//--------------------------------------------------
-	private void Start()
+	protected virtual void Start()
 	{
 		_rectTransform = this.gameObject.GetComponent<RectTransform>();
+		_shooter = this.gameObject.GetComponent<BulletShooter>();
 	}
 
-	void Update()
+	protected virtual void Update()
 	{
-		Move();
-		Shot();
+		if (GameContoroller.Instance.NowMode == GameContoroller.Mode.Play)
+		{
+			Move();
+			if (_shooter) { _shooter.Shot(Position, this.transform.parent); }
+		}
 	}
 
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-		Damage();	
-	}
-
+	//--------------------------------------------------
 	/// <summary>
 	/// 移動処理
 	/// </summary>
 	protected virtual void Move()
 	{
-		Debug.Log("Base Move");
-		if (GameContoroller.Instance == null || GameContoroller.Instance.NowMode != GameContoroller.Mode.Play) return;
 		Position += Vector2.down * _speed;
 	}
 
 	/// <summary>
-	/// 弾発射処理
-	/// </summary>
-	protected virtual void Shot(){}
-
-	/// <summary>
 	/// ダメージ処理
 	/// </summary>
-	public virtual void Damage()
+	public virtual void Damage(int damageValue = 0)
 	{
-		_hp--;
-		if(_hp <= 0)
+		_hp -= damageValue;
+		if (_hp <= 0)
 		{
 			this.gameObject.SetActive(false);
 		}
