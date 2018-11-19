@@ -68,6 +68,11 @@ public class CharaBase : MonoBehaviour
 		}
 	}
 
+	protected virtual void OnDisable()
+	{
+		if (_shooter) { _shooter.BulletDisable(); }
+	}
+
 	//--------------------------------------------------
 	/// <summary>
 	/// 移動処理

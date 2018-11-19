@@ -29,6 +29,8 @@ public class EnemyManager : MonoBehaviour
 
 	private void Update()
 	{
+		if (GameContoroller.Instance.NowMode != GameContoroller.Mode.Play) return;
+
 		_elapseTime += Time.deltaTime;
 		if (_elapseTime > _spawnTime)
 		{

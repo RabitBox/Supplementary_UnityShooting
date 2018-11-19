@@ -215,19 +215,20 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1880999472}
-    - target: {fileID: 114621851962633914, guid: 529608114d329a746a5572845fa55c78,
+    - target: {fileID: 114621304847739668, guid: 529608114d329a746a5572845fa55c78,
         type: 2}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1999382260956754, guid: 529608114d329a746a5572845fa55c78, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: _createPosition.Array.data[0].x
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 114621304847739668, guid: 529608114d329a746a5572845fa55c78,
         type: 2}
-      propertyPath: _fireRate
-      value: 8
+      propertyPath: _createPosition.Array.data[1].x
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621304847739668, guid: 529608114d329a746a5572845fa55c78,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 529608114d329a746a5572845fa55c78, type: 2}

@@ -73,22 +73,9 @@ public class BulletShooter : MonoBehaviour
 	}
 
 	/// <summary>
-	/// 初期設定を行う
+	/// 弾を非表示にする
 	/// </summary>
-	/// <param name="createTarget">生成時の親オブジェクト</param>
-	/// <param name="defaultCreateNumber">初期生成量</param>
-	//public void SetUp(Transform createTarget, int defaultCreateNumber = 10)
-	//{
-	//	for (int count = 0; count < defaultCreateNumber; count++)
-	//	{
-	//		var createdData = Instantiate(_bulletPrefab, createTarget).GetComponent<BulletBase>();
-	//		createdData.CreaterTag = this.gameObject.tag;
-	//		_bullets.Add(createdData);
-	//	}
-	//}
-
-	//--------------------------------------------------
-	private void OnDisable()
+	public void BulletDisable()
 	{
 		foreach(var bullet in _bullets)
 		{

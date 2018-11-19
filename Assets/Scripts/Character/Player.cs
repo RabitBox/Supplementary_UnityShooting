@@ -35,8 +35,6 @@ public class Player : CharaBase
 		this._rectTransform.anchoredPosition = nextPosition;
 	}
 
-	//public override void Damage(int damageValue = 0) {}
-
 	/// <summary>
 	/// 特定の値を最大値と最小値の間に補正する
 	/// </summary>
@@ -49,5 +47,15 @@ public class Player : CharaBase
 		target.x = Mathf.Clamp( target.x, min.x, max.x );
 		target.y = Mathf.Clamp( target.y, min.y, max.y );
 		return target;
+	}
+
+	//-------------------------------------------------------
+	protected override void OnTriggerEnter2D(Collider2D collision)
+	{
+		base.OnTriggerEnter2D(collision);
+		if (collision.gameObject.tag == "Enemy")
+		{
+			Damage(1);
+		}
 	}
 }
