@@ -35,6 +35,8 @@ public class GameContoroller : SingletonMonoBehavior<GameContoroller>
 	[SerializeField] private ScoreManager _scoreManager = null;
 	public ScoreManager Score { get { return _scoreManager; } }
 
+	[SerializeField] private GameObject _sizeTarget;
+
 	/// <summary>
 	/// スクリーン座標の最大値
 	/// </summary>
@@ -51,7 +53,7 @@ public class GameContoroller : SingletonMonoBehavior<GameContoroller>
 	private void Awake()
 	{
 		NowMode = Mode.Play;
-		var size = this.transform.parent.GetComponent<RectTransform>().sizeDelta;
+		var size = _sizeTarget.GetComponent<RectTransform>().sizeDelta;
 		_min -= _max = (size / 2);
 	}
 
